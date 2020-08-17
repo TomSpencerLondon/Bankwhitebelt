@@ -1,8 +1,8 @@
 namespace Bank
 {
-    public class Clock : IClock
+    public class StatementPrinter
     {
-        public string DateAsString()
+        public StatementPrinter(Console console)
         {
             throw new System.NotImplementedException();
         }

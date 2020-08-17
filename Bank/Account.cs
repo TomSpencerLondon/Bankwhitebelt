@@ -2,13 +2,28 @@ namespace Bank
 {
     public class Account
     {
-        private readonly Clock _clock;
-        private readonly Console _console;
+        private readonly IClock _clock;
+        private readonly StatementPrinter statementPrinter;
 
-        public Account(Clock clock, Console console)
+        public Account(IClock clock, StatementPrinter statementPrinter)
         {
             _clock = clock;
-            _console = console;
+            this.statementPrinter = statementPrinter;
+        }
+
+        public void Deposit(int amount)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Withdraw(int amount)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void printStatement()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
