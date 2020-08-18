@@ -6,8 +6,6 @@ namespace Bank.Test.Acceptance
     public class PrintStatementFeature
     {
         
-
-
         [Test]
         public void should_print_statement_containing_all_transactions()
         {

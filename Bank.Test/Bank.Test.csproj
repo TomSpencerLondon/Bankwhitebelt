@@ -60,7 +60,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Acceptance\PrintStatementFeature.cs" />
-        <Compile Include="Tests.cs" />
+        <Compile Include="AccountShould.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
