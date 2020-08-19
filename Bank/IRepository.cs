@@ -2,6 +2,7 @@ namespace Bank
 {
     public interface IRepository
     {
-        void DepositTransaction(int amount);
+        void Deposit(int amount);
+        void Withdraw(int amount);
     }
 }

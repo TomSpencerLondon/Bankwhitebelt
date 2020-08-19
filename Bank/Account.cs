@@ -1,35 +1,34 @@
+using System.Collections.Generic;
+
 namespace Bank
 {
     public class Account
     {
         private readonly IRepository _repository;
         private readonly IClock _clock;
-        private readonly StatementPrinter statementPrinter;
 
-        public Account(IClock clock, StatementPrinter statementPrinter)
+        private readonly IStatementPrinter statementPrinter;
+
+        public Account(IRepository repository, IClock clock, IStatementPrinter statementPrinter)
         {
+            _repository = repository;
             _clock = clock;
             this.statementPrinter = statementPrinter;
         }
 
-        public Account(IRepository repository)
-        {
-            _repository = repository;
-        }
-
         public void Deposit(int amount)
         {
-            _repository.DepositTransaction(amount);
+            _repository.Deposit(amount);
         }
 
         public void Withdraw(int amount)
         {
-            throw new System.NotImplementedException();
+            _repository.Withdraw(amount);
         }
 
-        public void printStatement()
+        public void PrintStatement()
         {
-            throw new System.NotImplementedException();
+            statementPrinter.Print(new List<Transaction>());
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Bank.Test.Acceptance
 
 
             var statementPrinter = new StatementPrinter(consoleMoq.Object);
-            var account = new Account(clockMoq.Object, statementPrinter);
+            var account = new Account(new Repository(), clockMoq.Object, statementPrinter);
             
             // When
             account.Deposit(1000);
@@ -29,7 +29,7 @@ namespace Bank.Test.Acceptance
 
             account.Deposit(500);
 
-            account.printStatement();
+            account.PrintStatement();
             
             consoleMoq.Verify(console => console.printLine("DATE | AMOUNT | BALANCE"));
             consoleMoq.Verify(console => console.printLine("10/04/2014 | 500.00 | 1400.00"));
