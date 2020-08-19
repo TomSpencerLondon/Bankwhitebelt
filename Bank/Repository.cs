@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Bank
 {
     public class Repository : IRepository
@@ -8,6 +10,11 @@ namespace Bank
         }
 
         public void Withdraw(int amount)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Transaction> AllTransactions()
         {
             throw new System.NotImplementedException();
         }

@@ -39,8 +39,29 @@ namespace Bank.Test
         [Test]
         public void print_statement_with_no_transactions()
         {
+            var transactions = new List<Transaction>{};
+
+            _repositoryMoq.Setup(repository => repository.AllTransactions()).Returns(transactions);
+
             _account.PrintStatement();
-            _statementPrinterMoq.Verify(printer => printer.Print(new List<Transaction>{}));
+            _statementPrinterMoq.Verify(printer => printer.Print(transactions));
+        }
+
+        [Test]
+        public void print_statement_with_several_transaction()
+        {
+            Transaction[] input =
+            {
+                new Transaction("1/1/1900", 1),
+                new Transaction("2/2/1929", -1)
+            };
+            var transactions = new List<Transaction>(input);
+
+            _repositoryMoq.Setup(repository => repository.AllTransactions()).Returns(transactions);
+
+            _account.PrintStatement();
+            
+            _statementPrinterMoq.Verify(printer => printer.Print(transactions));
         }
     }
 }

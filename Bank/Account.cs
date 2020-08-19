@@ -28,7 +28,9 @@ namespace Bank
 
         public void PrintStatement()
         {
-            statementPrinter.Print(new List<Transaction>());
+            List<Transaction> transactions = _repository.AllTransactions();
+            
+            statementPrinter.Print(transactions);
         }
     }
 }
