@@ -48,7 +48,7 @@ namespace Bank.Test
         }
 
         [Test]
-        public void print_statement_with_several_transaction()
+        public void print_statement_with_several_transactions()
         {
             Transaction[] input =
             {

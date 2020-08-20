@@ -10,5 +10,9 @@ namespace Bank
             _date = date;
             _amount = amount;
         }
+
+        public string Date => _date;
+
+        public int Amount => _amount;
     }
 }
