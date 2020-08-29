@@ -32,9 +32,15 @@ namespace Bank.Test
         [Test]
         public void store_a_withdrawal()
         {
-            int amount = 100;
-            _account.Withdraw(amount);
-            _repositoryMoq.Verify(repository => repository.Withdraw(amount));
+            // given
+            _clockMoq.Setup(clock => clock.DateAsString())
+                .Returns("5/1/1929");
+            // when
+            var withdrawal = new Transaction("5/1/1929", -100);
+            _account.Withdraw(100);
+
+            // then
+            _repositoryMoq.Verify(repository => repository.Save(withdrawal));
         }
 
         [Test]

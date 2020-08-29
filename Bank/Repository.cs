@@ -9,11 +9,11 @@ namespace Bank
             throw new System.NotImplementedException();
         }
 
-        public void Withdraw(int amount)
+        public void Withdraw(Transaction transaction)
         {
             throw new System.NotImplementedException();
         }
-
+        
         public List<Transaction> AllTransactions()
         {
             throw new System.NotImplementedException();

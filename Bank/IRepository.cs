@@ -5,7 +5,7 @@ namespace Bank
     public interface IRepository
     {
         void Save(Transaction transaction);
-        void Withdraw(int amount);
+        void Withdraw(Transaction transaction);
         List<Transaction> AllTransactions();
     }
 }
