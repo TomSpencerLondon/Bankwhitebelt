@@ -23,9 +23,10 @@ namespace Bank.Test
         [Test]
         public void store_a_deposit()
         {
-            int amount = 100;
-            _account.Deposit(amount);
-            _repositoryMoq.Verify(repository => repository.Deposit(amount));
+            var transaction = new Transaction("1/1/1929", 100);
+            _clockMoq.Setup(clock => clock.DateAsString()).Returns("1/1/1929");
+            _account.Deposit(100);
+            _repositoryMoq.Verify(repository => repository.Save(transaction));
         }
 
         [Test]

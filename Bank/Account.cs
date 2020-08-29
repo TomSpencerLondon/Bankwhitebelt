@@ -18,7 +18,9 @@ namespace Bank
 
         public void Deposit(int amount)
         {
-            _repository.Deposit(amount);
+            var transaction = new Transaction(_clock.DateAsString(), amount);
+            
+            _repository.Save(transaction);
         }
 
         public void Withdraw(int amount)

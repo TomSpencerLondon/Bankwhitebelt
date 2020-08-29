@@ -4,7 +4,7 @@ namespace Bank
 {
     public class Repository : IRepository
     {
-        public void Deposit(int amount)
+        public void Save(Transaction transaction)
         {
             throw new System.NotImplementedException();
         }
